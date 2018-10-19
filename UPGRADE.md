@@ -61,6 +61,7 @@ There is a list of all the repositories maintained by monorepo, changes in log b
     - modify your `build.xml` and `build-dev.xml` according to this pull request
 - *(optional)* [#535 added .dockerignore files](https://github.com/shopsys/shopsys/pull/535)
     - to make your Docker image build faster, copy the `.dockerignore` file to the root of you project
+    - if you're using Docker-sync, add the directories mentioned in the PR into `sync_exclude` section of your `docker-sync.yml` to make the synchronization faster as well
 
 ### [shopsys/shopsys]
 - *(MacOS only)* [#503 updated docker-sync configuration](https://github.com/shopsys/shopsys/pull/503/)
@@ -114,6 +115,8 @@ There is a list of all the repositories maintained by monorepo, changes in log b
     - files `build.xml` and `build-dev.xml` were updated to speed up deployment process of built docker images of php-fpm
     - installation guide for production via Docker was updated, now there is no need for the first part of the build phing target
     - file `docker/php-fpm/docker-php-entrypoint` was changed, update it according to [`project-base/docker/php-fpm/docker-php-entrypoint`](./project-base/docker/php-fpm/docker-php-entrypoint)
+- *(optional)* [#535 added .dockerignore files](https://github.com/shopsys/shopsys/pull/535)
+    - if you're using Docker-sync, add the directories mentioned in the PR into `sync_exclude` section of your `docker-sync.yml` to make the synchronization faster
 
 ## [From 7.0.0-beta1 to 7.0.0-beta2]
 ### [shopsys/project-base]
