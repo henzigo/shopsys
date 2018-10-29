@@ -16,6 +16,10 @@ class FriendlyUrlGenerator extends BaseUrlGenerator
      */
     private $friendlyUrlRepository;
 
+    /**
+     * @param \Symfony\Component\Routing\RequestContext $context
+     * @param \Shopsys\FrameworkBundle\Component\Router\FriendlyUrl\FriendlyUrlRepository $friendlyUrlRepository
+     */
     public function __construct(
         RequestContext $context,
         FriendlyUrlRepository $friendlyUrlRepository
@@ -100,6 +104,9 @@ class FriendlyUrlGenerator extends BaseUrlGenerator
 
     /**
      * Not supported method
+     * @param  $routeName
+     * @param  $parameters
+     * @param  $referenceType
      */
     public function generate($routeName, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {

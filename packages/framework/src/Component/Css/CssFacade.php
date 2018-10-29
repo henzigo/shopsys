@@ -9,6 +9,9 @@ class CssFacade
      */
     protected $cssVersionFilepath;
 
+    /**
+     * @param  $cssVersionFilepath
+     */
     public function __construct($cssVersionFilepath)
     {
         $this->cssVersionFilepath = $cssVersionFilepath;

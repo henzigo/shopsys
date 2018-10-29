@@ -49,7 +49,6 @@ interface AdvancedSearchFilterInterface
     public function getValueFormOptions();
 
     /**
-     * Method that applies the filtering conditions specified by $rulesData to the provided query builder
      *
      * @param \Doctrine\ORM\QueryBuilder $queryBuilder
      * @param \Shopsys\FrameworkBundle\Model\AdvancedSearch\AdvancedSearchRuleData[] $rulesData

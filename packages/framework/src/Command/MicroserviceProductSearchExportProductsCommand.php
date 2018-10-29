@@ -20,6 +20,9 @@ class MicroserviceProductSearchExportProductsCommand extends Command
      */
     protected $exportFacade;
 
+    /**
+     * @param \Shopsys\FrameworkBundle\Model\Product\ProductSearchExport\ProductSearchExportFacade $exportFacade
+     */
     public function __construct(ProductSearchExportFacade $exportFacade)
     {
         parent::__construct();

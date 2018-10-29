@@ -22,6 +22,8 @@ class OrderStatusServiceTest extends TestCase
 
     /**
      * @dataProvider checkForDeleteProvider
+     * @param  $statusType
+     * @param  $expectedException
      */
     public function testCheckForDelete($statusType, $expectedException = null)
     {

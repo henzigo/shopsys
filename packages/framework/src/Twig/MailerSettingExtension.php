@@ -34,6 +34,10 @@ class MailerSettingExtension extends Twig_Extension
      */
     private $templating;
 
+    /**
+     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+     * @param \Symfony\Component\Templating\EngineInterface $templating
+     */
     public function __construct(ContainerInterface $container, EngineInterface $templating)
     {
         $this->container = $container;

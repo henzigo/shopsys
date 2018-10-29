@@ -21,6 +21,8 @@ class DatabaseSearchingTest extends TestCase
 
     /**
      * @dataProvider searchTextProvider
+     * @param  $searchText
+     * @param  $querySearchStringQuery
      */
     public function testSafeFilename($searchText, $querySearchStringQuery)
     {

@@ -21,6 +21,8 @@ class RemoveWhitespacesTransformerTest extends TestCase
 
     /**
      * @dataProvider transformValuesProvider
+     * @param  $value
+     * @param  $expected
      */
     public function testReverseTransform($value, $expected)
     {

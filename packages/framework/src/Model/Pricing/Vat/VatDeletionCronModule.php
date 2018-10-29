@@ -23,6 +23,10 @@ class VatDeletionCronModule implements IteratedCronModuleInterface
      */
     private $productInputPriceFacade;
 
+    /**
+     * @param \Shopsys\FrameworkBundle\Model\Pricing\Vat\VatFacade $vatFacade
+     * @param \Shopsys\FrameworkBundle\Model\Product\Pricing\ProductInputPriceFacade $productInputPriceFacade
+     */
     public function __construct(VatFacade $vatFacade, ProductInputPriceFacade $productInputPriceFacade)
     {
         $this->vatFacade = $vatFacade;

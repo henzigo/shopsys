@@ -34,6 +34,9 @@ class NumberFormatterExtensionTest extends FunctionalTestCase
 
     /**
      * @dataProvider formatNumberDataProvider
+     * @param  $input
+     * @param  $locale
+     * @param  $result
      */
     public function testFormatNumber($input, $locale, $result)
     {

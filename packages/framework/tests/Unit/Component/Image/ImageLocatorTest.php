@@ -108,6 +108,10 @@ class ImageLocatorTest extends TestCase
 
     /**
      * @dataProvider getRelativeImagePathProvider
+     * @param  $entityName
+     * @param  $type
+     * @param  $sizeName
+     * @param  $expectedPath
      */
     public function testGetRelativeImagePath($entityName, $type, $sizeName, $expectedPath)
     {
@@ -143,6 +147,10 @@ class ImageLocatorTest extends TestCase
 
     /**
      * @dataProvider getRelativeImagePathExceptionProvider
+     * @param  $entityName
+     * @param  $type
+     * @param  $sizeName
+     * @param  $exceptionClass
      */
     public function testGetRelativeImagePathException($entityName, $type, $sizeName, $exceptionClass)
     {

@@ -16,6 +16,12 @@ class ProductFacadeTest extends TransactionFunctionalTestCase
 {
     /**
      * @dataProvider getTestHandleOutOfStockStateDataProvider
+     * @param  $hidden
+     * @param  $sellingDenied
+     * @param  $stockQuantity
+     * @param  $outOfStockAction
+     * @param  $calculatedHidden
+     * @param  $calculatedSellingDenied
      */
     public function testHandleOutOfStockState(
         $hidden,

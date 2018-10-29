@@ -55,6 +55,8 @@ class StrictWebDriver extends WebDriver
 
     /**
      * @deprecated
+     * @param  $link
+     * @param  $context
      */
     public function click($link, $context = null)
     {
@@ -67,6 +69,8 @@ class StrictWebDriver extends WebDriver
 
     /**
      * @see click()
+     * @param  $link
+     * @param  $context
      */
     private function clickAndWait($link, $context = null)
     {
@@ -129,6 +133,8 @@ class StrictWebDriver extends WebDriver
 
     /**
      * @deprecated
+     * @param  $field
+     * @param  $value
      */
     public function fillField($field, $value)
     {
@@ -190,6 +196,7 @@ class StrictWebDriver extends WebDriver
 
     /**
      * @deprecated
+     * @param  $checkbox
      */
     public function seeCheckboxIsChecked($checkbox)
     {
@@ -236,6 +243,7 @@ class StrictWebDriver extends WebDriver
 
     /**
      * @deprecated
+     * @param  $checkbox
      */
     public function dontSeeCheckboxIsChecked($checkbox)
     {
@@ -282,6 +290,7 @@ class StrictWebDriver extends WebDriver
 
     /**
      * @deprecated
+     * @param  $option
      */
     public function checkOption($option)
     {
@@ -347,6 +356,8 @@ class StrictWebDriver extends WebDriver
 
     /**
      * @deprecated
+     * @param  $field
+     * @param  $value
      */
     public function seeInField($field, $value)
     {
@@ -390,6 +401,8 @@ class StrictWebDriver extends WebDriver
 
     /**
      * @deprecated
+     * @param  $element
+     * @param  $char
      */
     public function pressKey($element, $char)
     {

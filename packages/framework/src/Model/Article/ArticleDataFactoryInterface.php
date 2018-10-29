@@ -10,6 +10,7 @@ interface ArticleDataFactoryInterface
     public function create(): ArticleData;
 
     /**
+     * @param \Shopsys\FrameworkBundle\Model\Article\Article $article
      * @param \Shopsys\FrameworkBundle\Model\Article\Article
      * @return \Shopsys\FrameworkBundle\Model\Article\ArticleData
      */

@@ -64,6 +64,11 @@ class PaymentPriceCalculationTest extends TestCase
 
     /**
      * @dataProvider calculateIndependentPriceProvider
+     * @param  $inputPriceType
+     * @param  $inputPrice
+     * @param  $vatPercent
+     * @param  $priceWithoutVat
+     * @param  $priceWithVat
      */
     public function testCalculateIndependentPrice(
         $inputPriceType,
@@ -110,6 +115,12 @@ class PaymentPriceCalculationTest extends TestCase
 
     /**
      * @dataProvider calculatePriceProvider
+     * @param  $inputPriceType
+     * @param  $inputPrice
+     * @param  $vatPercent
+     * @param  $priceWithoutVat
+     * @param  $priceWithVat
+     * @param  $productsPrice
      */
     public function testCalculatePrice(
         $inputPriceType,

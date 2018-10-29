@@ -94,6 +94,7 @@ class CustomerService
 
     /**
      * @param \Shopsys\FrameworkBundle\Model\Customer\User $user
+     * @param \Shopsys\FrameworkBundle\Model\Customer\UserData $userData
      * @param \Shopsys\FrameworkBundle\Model\Customer\UserData
      */
     public function edit(User $user, UserData $userData)
@@ -106,6 +107,7 @@ class CustomerService
     }
 
     /**
+     * @param \Shopsys\FrameworkBundle\Model\Customer\DeliveryAddressData $deliveryAddressData
      * @param \Shopsys\FrameworkBundle\Model\Customer\DeliveryAddressData
      * @return \Shopsys\FrameworkBundle\Model\Customer\DeliveryAddress|null
      */

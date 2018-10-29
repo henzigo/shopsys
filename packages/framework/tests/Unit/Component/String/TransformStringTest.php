@@ -47,6 +47,8 @@ class TransformStringTest extends TestCase
 
     /**
      * @dataProvider safeFilenameProvider
+     * @param  $actual
+     * @param  $expected
      */
     public function testSafeFilename($actual, $expected)
     {
@@ -89,6 +91,8 @@ class TransformStringTest extends TestCase
 
     /**
      * @dataProvider stringToFriendlyUrlSlugProvider
+     * @param  $actual
+     * @param  $expected
      */
     public function testStringToFriendlyUrlSlug($actual, $expected)
     {
@@ -139,6 +143,8 @@ class TransformStringTest extends TestCase
 
     /**
      * @dataProvider stringToCamelCaseProvider
+     * @param  $actual
+     * @param  $expected
      */
     public function testStringToCamelCase($actual, $expected)
     {

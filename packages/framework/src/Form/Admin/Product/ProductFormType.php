@@ -119,6 +119,20 @@ class ProductFormType extends AbstractType
      */
     private $productParameterValueToProductParameterValuesLocalizedTransformer;
 
+    /**
+     * @param \Shopsys\FrameworkBundle\Model\Pricing\Vat\VatFacade $vatFacade
+     * @param \Shopsys\FrameworkBundle\Model\Product\Availability\AvailabilityFacade $availabilityFacade
+     * @param \Shopsys\FrameworkBundle\Model\Product\Brand\BrandFacade $brandFacade
+     * @param \Shopsys\FrameworkBundle\Model\Product\Flag\FlagFacade $flagFacade
+     * @param \Shopsys\FrameworkBundle\Model\Product\Unit\UnitFacade $unitFacade
+     * @param \Shopsys\FrameworkBundle\Component\Domain\Domain $domain
+     * @param \Shopsys\FrameworkBundle\Model\Seo\SeoSettingFacade $seoSettingFacade
+     * @param \Shopsys\FrameworkBundle\Model\Category\CategoryFacade $categoryFacade
+     * @param \Shopsys\FrameworkBundle\Form\Transformers\RemoveDuplicatesFromArrayTransformer $removeDuplicatesTransformer
+     * @param \Shopsys\FrameworkBundle\Model\Pricing\Group\PricingGroupFacade $pricingGroupFacade
+     * @param \Shopsys\FrameworkBundle\Component\Plugin\PluginCrudExtensionFacade $pluginDataFormExtensionFacade
+     * @param \Shopsys\FrameworkBundle\Form\Transformers\ProductParameterValueToProductParameterValuesLocalizedTransformer $productParameterValueToProductParameterValuesLocalizedTransformer
+     */
     public function __construct(
         VatFacade $vatFacade,
         AvailabilityFacade $availabilityFacade,

@@ -103,6 +103,7 @@ SAMPLE
 
     /**
      * @param \PhpCsFixer\DocBlock\Annotation $annotation
+     * @return bool
      */
     private function isRelationAnnotation(Annotation $annotation): bool
     {
@@ -125,6 +126,7 @@ SAMPLE
 
     /**
      * @param \PhpCsFixer\DocBlock\DocBlock $doc
+     * @return \PhpCsFixer\DocBlock\Annotation|null
      */
     private function findJoinColumnAnnotation(DocBlock $doc): ?Annotation
     {

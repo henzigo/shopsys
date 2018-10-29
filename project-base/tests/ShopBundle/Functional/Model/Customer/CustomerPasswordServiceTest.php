@@ -48,6 +48,10 @@ class CustomerPasswordServiceTest extends FunctionalTestCase
 
     /**
      * @dataProvider isResetPasswordHashValidProvider
+     * @param  $resetPasswordHash
+     * @param  $resetPasswordHashValidThrough
+     * @param  $sentHash
+     * @param  $isExpectedValid
      */
     public function testIsResetPasswordHashValid(
         $resetPasswordHash,

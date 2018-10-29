@@ -13,6 +13,7 @@ class AdministratorDataFactory implements AdministratorDataFactoryInterface
     }
 
     /**
+     * @param \Shopsys\FrameworkBundle\Model\Administrator\Administrator $administrator
      * @param \Shopsys\FrameworkBundle\Model\Administrator\Administrator
      * @return \Shopsys\FrameworkBundle\Model\Administrator\AdministratorData
      */

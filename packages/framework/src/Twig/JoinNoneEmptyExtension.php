@@ -19,6 +19,8 @@ class JoinNoneEmptyExtension extends Twig_Extension
 
     /**
      * @return string
+     * @param array $array
+     * @param  $glue
      */
     public function getArray(array $array, $glue = ', ')
     {

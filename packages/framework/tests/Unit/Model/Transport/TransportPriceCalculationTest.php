@@ -41,6 +41,11 @@ class TransportPriceCalculationTest extends TestCase
 
     /**
      * @dataProvider calculateIndependentPriceProvider
+     * @param  $inputPriceType
+     * @param  $inputPrice
+     * @param  $vatPercent
+     * @param  $priceWithoutVat
+     * @param  $priceWithVat
      */
     public function testCalculateIndependentPrice(
         $inputPriceType,

@@ -24,6 +24,11 @@ class PaginationResultTest extends TestCase
 
     /**
      * @dataProvider getTestPageCountData
+     * @param  $page
+     * @param  $pageSize
+     * @param  $totalCount
+     * @param  $results
+     * @param  $expectedPageCount
      */
     public function testGetPageCount($page, $pageSize, $totalCount, $results, $expectedPageCount)
     {

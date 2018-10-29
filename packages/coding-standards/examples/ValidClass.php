@@ -14,6 +14,9 @@ final class ValidClass
      */
     private $parameterCamelCase;
 
+    /**
+     * @param ShopsysNamespace\Type $parameterCamelCase
+     */
     public function method(Type $parameterCamelCase)
     {
         $this->parameterCamelCase = $parameterCamelCase;

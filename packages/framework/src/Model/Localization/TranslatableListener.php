@@ -10,6 +10,9 @@ use Prezent\Doctrine\Translatable\Mapping\TranslatableMetadata;
 
 class TranslatableListener extends PrezentTranslatableListener
 {
+    /**
+     * @param \Metadata\MetadataFactory $factory
+     */
     public function __construct(MetadataFactory $factory)
     {
         parent::__construct($factory);

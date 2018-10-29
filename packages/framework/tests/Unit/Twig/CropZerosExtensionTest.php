@@ -21,6 +21,8 @@ class CropZerosExtensionTest extends TestCase
 
     /**
      * @dataProvider returnValuesProvider
+     * @param  $input
+     * @param  $return
      */
     public function testReturnValues($input, $return)
     {

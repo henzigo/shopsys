@@ -37,7 +37,6 @@ class RouteConfigCustomizer
     }
 
     /**
-     * Provided $callback will be called with RouteConfig and RouteInfo that matches by route name as arguments
      *
      * @see \Shopsys\HttpSmokeTesting\RouteConfig
      * @see \Shopsys\HttpSmokeTesting\RouteInfo

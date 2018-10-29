@@ -27,6 +27,13 @@ class Configuration extends DoctrineConfiguration
      */
     private $migrationVersions = null;
 
+    /**
+     * @param \Shopsys\MigrationBundle\Component\Doctrine\Migrations\MigrationsLock $migrationsLock
+     * @param \Doctrine\DBAL\Connection $connection
+     * @param \Doctrine\DBAL\Migrations\OutputWriter $outputWriter
+     * @param \Doctrine\DBAL\Migrations\Finder\MigrationFinderInterface $finder
+     * @param \Doctrine\DBAL\Migrations\QueryWriter|null $queryWriter
+     */
     public function __construct(
         MigrationsLock $migrationsLock,
         Connection $connection,

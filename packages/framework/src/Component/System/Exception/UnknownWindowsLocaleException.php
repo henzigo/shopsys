@@ -8,6 +8,10 @@ use Throwable;
 
 class UnknownWindowsLocaleException extends Exception
 {
+    /**
+     * @param  $collation
+     * @param \Throwable|null $previous
+     */
     public function __construct($collation, Throwable $previous = null)
     {
         $message = sprintf(

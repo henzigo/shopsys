@@ -32,6 +32,7 @@ class SettingValueTest extends TestCase
 
     /**
      * @dataProvider editProvider
+     * @param  $value
      */
     public function testEdit($value)
     {
@@ -41,6 +42,7 @@ class SettingValueTest extends TestCase
 
     /**
      * @dataProvider editExceptionProvider
+     * @param  $value
      */
     public function testEditException($value)
     {

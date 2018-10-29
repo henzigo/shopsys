@@ -23,7 +23,6 @@ interface FeedInterface
 
     /**
      * Returns items that will be passed to the Twig template during feed export.
-     * The items' seek IDs must be in ascending order. All items that should be included must be returned, up to $maxResults.
      *
      * @param \Shopsys\FrameworkBundle\Component\Domain\Config\DomainConfig $domainConfig
      * @param int|null $lastSeekId
