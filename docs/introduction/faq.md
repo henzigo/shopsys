@@ -1,7 +1,7 @@
 # FAQ and Common Issues
 
-Táto sekce poskytuje jen stručné odpovědi na několik nejčastěji se vyskytujících otázek.
-Pro podrobnější informace o platformě Shopys Framework využijte prosím naši dokumentaci [Shopsys Framework Knowledge Base](../index.md).
+This section provides only the basic answers to some of the most frequently asked questions.
+For more detailed information about the Shopsys Framework, please see [Shopsys Framework Knowledge Base](../index.md).
 
 ## What are the phing targets?
 Every phing target is a task that can be executed simply by php phing <target-name> command.
@@ -12,6 +12,8 @@ Data fixtures jsou vlastně demo data dostupné již v základu Shopsys Framewor
 Demo data rozdělujeme na singledomain a multidomain.
 Instalace těchto demo dat probíha prostřednictvím phingového targetu `db-fixtures-demo-singledomain` pro základní demo data a prostřednictvím phingového targetu `db-fixtures-demo-multidomain` pro multidoménová data.
 Kdy se tyto phingové targety spouštějí zjistíte ve vaši konfiguraci phingových targetu v souborech `build.xml` a `build-dev.xml`.
+Demo data se využívají např při automatických testech nebo pro splnění potřeby nainstalování Shopsys Frameworku s nějakými základními daty.
+Do not forget to extend the demo data when implementing some new features.
 
 ## How to perform a change of domain URL?
 Akce změny url pozustava ze dvou kroku.
@@ -27,7 +29,7 @@ Práce s migracemi je podrobněji popsána v [Database Migrations](./database-mi
 ## What are the diff versions of coding standards check commands and what are their limits?
 Některé phingové targety pro kontrolu standardu mají kromě základní formy příkazu, která se využívá na kontrolu všech souboru, i formu příkazu se suffixem `-diff`, která se využívá je na kontrolu změněných souboru.
 Např phingový target `standards` spustí kontrolu nad všemi soubory aplikace a phingový target `standards-diff` spustí kontrolu jen nad změněnými soubory aplikace.
-Změněné soubory jsou vyhodnocovány oproti origin/master verzi.
+Modifications are detected via git by comparison against the origin/master version.
 
 ## Is the application https ready or does it need some extra setting?
 Shopys Framework je plně připraven pro HTTPS.
@@ -49,9 +51,16 @@ Tento scénář je popsán taky v návodu [How to Set Up Domains and Locales (La
 ## What are the differences between "listable", "sellable", "offered" and "visible" products?
 Produkty je možné rozdělit do několika skupin podle toho, jak se s těmito produkty pracuje nebo k čemu jsou používaný.
 
-**Visible** - produkty, které jsou v databázi vedeny jako viditelné pro konkrétní cenovou skupinu a konkrétní doménu.
-Produkt totiž muže být viditelný na jedné doméně ale skrytý na druhé doméně, protože nemá např pro druhou doménu nastavenou cenu.
-Současně, když je produkt viditelný, to ještě neznamená, že je možné tento produkt i zakoupit.
+**Visible** - produkty, které jsou v databázi vedeny jako viditelné.
+Podmínky, které musí produkt splňovat aby byl veden jako viditelný:
+- nesmí být označen jako skrytý
+- v případě, že má produkt nastaven selling start date, tak hodnota tohoto atributu musí být nastavena na datum v minulosti
+- v případě, že má produkt nastaven selling end date, tak hodnota tohoto atributu musí být nastavena na datum v budoucnosti
+- pro daný locale musí mít produkt vyplněn název
+- pro danou doménu musí být produkt zařazen ve viditelném oddělení
+- v případě, že se jedná o variantu, musí mít tato varianta vypočtenou cenu pro danou cenovou skupinu
+- v případě, že se jedná o variantu, nesmí být skryta její hlavní varianta
+- v případě, že se jedná o hlavní variantu, musí být viditelná alespoň jedná její varianta.
 
 **Offered** - produkty, které splňují podmínky pro **visible** a současně jsou v databázi vedeny s příznakem `calculatedSellingDenied` = `FALSE`.
 Příznak `calculatedSellingDenied` určuje, zdali není náhodou produkt vyprodán nebo v případě varianty, zdali není zakázaný prodej hlavní rodičovské položky, pod kterou táto varianta patří.
