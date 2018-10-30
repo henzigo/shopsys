@@ -8,7 +8,7 @@ Every phing target is a task that can be executed simply by php phing <target-na
 See more about phing targets in [Phing Targets](./phing-targets.md).
 
 ## What are the data fixtures good for?
-Data fixtures jsou vlastně demo data dostupné již v základu Shopsys Frameworku.
+Data fixtures are actually demo data that is already available at Shopys Frameworku.
 Demo data rozdělujeme na singledomain a multidomain.
 Instalace těchto demo dat probíha prostřednictvím phingového targetu `db-fixtures-demo-singledomain` pro základní demo data a prostřednictvím phingového targetu `db-fixtures-demo-multidomain` pro multidoménová data.
 Kdy se tyto phingové targety spouštějí zjistíte ve vaši konfiguraci phingových targetu v souborech `build.xml` a `build-dev.xml`.
@@ -87,6 +87,7 @@ Např v metodě `edit` v `Shopsys\FrameworkBundle\Model\Product\ProductFacade` s
 Toto volání zabezpečí, že při volání metody `edit` je produkt označen k `immediate` přepočtu dostupnosti.
 Tento přepočet je následně spuštěn po dokončení requestu a odchycení metody `onKernelResponse`.
 Neplatí tedy fakt, že po provedení metody `edit` má již produkt dostupnost dopočtenou.
+This approach with `kernel.response` event is a legacy feature and it will be removed in the future, see [Recalculating products availability and prices immediately instead of on finish request](https://github.com/shopsys/shopsys/issues/202).
 
 ## How do I change the environment?
 The environment se řídí existenci souboru `PRODUCTION`, `DEVELOPMENT`, `TEST` v rootu vašeho projektu.
