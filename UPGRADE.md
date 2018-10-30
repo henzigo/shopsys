@@ -61,6 +61,8 @@ There is a list of all the repositories maintained by monorepo, changes in log b
     - modify your `build.xml` and `build-dev.xml` according to this pull request
 - [#558 - Missing standards check in CI build process #558](https://github.com/shopsys/shopsys/pull/558)
     - the Dockerfile for `php-fpm` has changed for CI stage build, update your `docker/php-fpm/Dockerfile`
+- *(optional)* [#557 - php-fpm image has standard workdir (/var/www/html) in ci stage](https://github.com/shopsys/shopsys/pull/557)
+    - update your `docker/php-fpm/Dockerfile` and `kubernetes/deployments/webserver-php-fpm.yml` according to [the pull request](https://github.com/shopsys/shopsys/pull/557) to simplify the CI build
 
 ### [shopsys/shopsys]
 - *(MacOS only)* [#503 updated docker-sync configuration](https://github.com/shopsys/shopsys/pull/503/)
