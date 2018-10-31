@@ -219,6 +219,7 @@ class ProductDataFixtureLoader
         );
         $productData->categoriesByDomainId[$domainId] =
             $this->getValuesByKeyString($row[self::COLUMN_CATEGORIES_1], $this->categories);
+        $productData->categoriesByDomainId[2] = $this->getValuesByKeyString($row[self::COLUMN_CATEGORIES_1], $this->categories);
         $productData->flags = $this->getValuesByKeyString($row[self::COLUMN_FLAGS], $this->flags);
         $productData->sellingDenied = $row[self::COLUMN_SELLING_DENIED];
 
