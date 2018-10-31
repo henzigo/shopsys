@@ -17,6 +17,7 @@ parameters:
     shopsys.performance_test.feed.delivery.max_duration_seconds: 20
     shopsys.performance_test.feed.min_duration_seconds: 5
     container.autowiring.strict_mode: true
+    shopsys.redis.cache_prefix: 'cache'
     shopsys.entity_extension.map:
         Shopsys\FrameworkBundle\Model\Article\Article: Shopsys\ShopBundle\Model\Article\Article
         Shopsys\FrameworkBundle\Model\Administrator\Administrator: Shopsys\ShopBundle\Model\Administrator\Administrator

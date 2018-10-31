@@ -5,31 +5,37 @@ snc_redis:
             alias: 'bestselling_products'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'cache:bestselling_products:'
+                prefix: '%shopsys.redis.cache_prefix%:bestselling_products:'
+        default:
+            type: 'phpredis'
+            alias: 'default'
+            dsn: 'redis://%redis_host%'
+            options:
+                prefix: '%shopsys.redis.cache_prefix%:'
         doctrine_annotations:
             type: 'phpredis'
             alias: 'doctrine_annotations'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'cache:doctrine:annotations:'
+                prefix: '%shopsys.redis.cache_prefix%:doctrine:annotations:'
         doctrine_metadata:
             type: 'phpredis'
             alias: 'doctrine_metadata'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'cache:doctrine:metadata:'
+                prefix: '%shopsys.redis.cache_prefix%:doctrine:metadata:'
         doctrine_query:
             type: 'phpredis'
             alias: 'doctrine_query'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'cache:doctrine:query:'
+                prefix: '%shopsys.redis.cache_prefix%:doctrine:query:'
         framework_cache:
             type: 'phpredis'
             alias: 'framework_cache'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'cache:framework:cache:'
+                prefix: '%shopsys.redis.cache_prefix%:framework:cache:'
         session:
             type: 'phpredis'
             alias: 'session'

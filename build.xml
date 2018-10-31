@@ -36,8 +36,16 @@
 
     <target name="standards" depends="phplint,ecs,phpstan,twig-lint,yaml-lint,eslint-check,standards-packages" description="Checks coding standards in the project-base, packages and microservices."/>
     <target name="standards-diff" depends="phplint-diff,ecs-diff,phpstan,twig-lint-diff,yaml-lint,eslint-check-diff,standards-packages" description="Checks coding standards on changed files in the project-base, packages and microservices."/>
+    <target name="clean" depends="clean-var, clean-redis" description="Cleans up directories with cache and scripts and redis cache" />
 
-    <target name="clean" description="Cleans up directories with cache and scripts which are generated on demand.">
+    <target name="clean-redis" description="Cleans redis cache.">
+        <exec executable="${path.php.executable}" passthru="true" checkreturn="true">
+            <arg value="${path.bin-console}" />
+            <arg value="shopsys:redis:clean" />
+        </exec>
+    </target>
+
+    <target name="clean-var" description="Cleans up directories with cache and scripts which are generated on demand.">
         <delete failonerror="false" includeemptydirs="true">
             <fileset dir="${path.var}/cache/">
                 <exclude name="/" />

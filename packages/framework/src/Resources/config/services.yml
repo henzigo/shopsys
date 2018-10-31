@@ -76,6 +76,12 @@ services:
         arguments:
             - '@annotation_reader'
 
+    shopsys.redis.cache_default:
+        class: Doctrine\Common\Cache\RedisCache
+        factory: 'Shopsys\FrameworkBundle\Component\Doctrine\Cache\RedisCacheFactory:create'
+        arguments:
+            - '@snc_redis.default'
+
     shopsys.doctrine.cache_driver.query_cache:
         class: Doctrine\Common\Cache\RedisCache
         factory: 'Shopsys\FrameworkBundle\Component\Doctrine\Cache\RedisCacheFactory:create'
@@ -503,6 +509,11 @@ services:
     Shopsys\FrameworkBundle\Model\Product\BestsellingProduct\CachedBestsellingProductFacade:
         arguments:
             - '@shopsys.shop.product.bestselling_product.cache_provider'
+
+    Shopsys\FrameworkBundle\Component\Redis\RedisFacade:
+        arguments:
+            - '@shopsys.redis.cache_default'
+            - '%shopsys.redis.cache_prefix%'
 
     Shopsys\FrameworkBundle\Model\Pricing\Rounding: ~
 
