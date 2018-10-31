@@ -6,6 +6,12 @@ snc_redis:
             dsn: 'redis://%redis_host%'
             options:
                 prefix: 'bestselling_products_'
+        framework_cache:
+            type: 'phpredis'
+            alias: 'framework_cache'
+            dsn: 'redis://%redis_host%'
+            options:
+                prefix: 'framework_cache_'
         doctrine_metadata:
             type: 'phpredis'
             alias: 'doctrine_metadata'
@@ -18,10 +24,24 @@ snc_redis:
             dsn: 'redis://%redis_host%'
             options:
                 prefix: 'doctrine_query_'
+        doctrine_annotations:
+            type: 'phpredis'
+            alias: 'doctrine_annotations'
+            dsn: 'redis://%redis_host%'
+            options:
+                prefix: 'doctrine_annotations_'
         session:
             type: 'phpredis'
             alias: 'session'
             dsn: 'redis://%redis_host%'
+    doctrine:
+        metadata_cache:
+            client: 'doctrine_metadata'
+            entity_manager: default
+            document_manager: default
+        query_cache:
+            client: 'doctrine_query'
+            entity_manager: default
     session:
         client: 'session'
         prefix: 'session_'

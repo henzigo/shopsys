@@ -36,7 +36,7 @@ services:
             - '@doctrine.dbal.default_connection'
             - '@doctrine.orm.default_configuration'
 
-    Doctrine\Common\Cache\ChainCache: ~
+    Shopsys\FrameworkBundle\Component\Doctrine\Cache\RedisCacheFactory: ~
 
     doctrine.orm.entity_manager.abstract:
         synthetic: true
@@ -77,20 +77,22 @@ services:
             - '@annotation_reader'
 
     shopsys.doctrine.cache_driver.query_cache:
-        class: Doctrine\Common\Cache\ChainCache
+        class: Doctrine\Common\Cache\RedisCache
+        factory: 'Shopsys\FrameworkBundle\Component\Doctrine\Cache\RedisCacheFactory:create'
         arguments:
-            -
-                - '@Doctrine\Common\Cache\ArrayCache'
-                - '@shopsys.shop.component.doctrine.cache.query.redis_cache'
-
-    Doctrine\Common\Cache\ArrayCache: ~
+            - '@snc_redis.doctrine_query'
 
     shopsys.doctrine.cache_driver.metadata_cache:
-        class: Doctrine\Common\Cache\ChainCache
+        class: Doctrine\Common\Cache\RedisCache
+        factory: 'Shopsys\FrameworkBundle\Component\Doctrine\Cache\RedisCacheFactory:create'
         arguments:
-            -
-                - '@Doctrine\Common\Cache\ArrayCache'
-                - '@shopsys.shop.component.doctrine.cache.metadata.redis_cache'
+            - '@snc_redis.doctrine_metadata'
+
+    shopsys.doctrine.cache_driver.annotations_cache:
+        class: Doctrine\Common\Cache\RedisCache
+        factory: 'Shopsys\FrameworkBundle\Component\Doctrine\Cache\RedisCacheFactory:create'
+        arguments:
+            - '@snc_redis.doctrine_annotations'
 
     Shopsys\FrameworkBundle\Model\AdminNavigation\BreadcrumbOverrider: ~
 
