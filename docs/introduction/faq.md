@@ -8,93 +8,98 @@ Every phing target is a task that can be executed simply by php phing <target-na
 See more about phing targets in [Phing Targets](./phing-targets.md).
 
 ## What are the data fixtures good for?
-Data fixtures are actually demo data that is already available at Shopys Frameworku.
-Demo data rozdělujeme na singledomain a multidomain.
-Instalace těchto demo dat probíha prostřednictvím phingového targetu `db-fixtures-demo-singledomain` pro základní demo data a prostřednictvím phingového targetu `db-fixtures-demo-multidomain` pro multidoménová data.
-Kdy se tyto phingové targety spouštějí zjistíte ve vaši konfiguraci phingových targetu v souborech `build.xml` a `build-dev.xml`.
-Demo data se využívají např při automatických testech nebo pro splnění potřeby nainstalování Shopsys Frameworku s nějakými základními daty.
+Data fixtures are actually demo data that are already available in the Shopys Framework.
+There are two kinds of demo data, the singledomain and the multidomain.
+For the installation of the basic demo data, use the phing target `db-fixtures-demo-singledomain`.
+For the installation of the multidomain demo data, use the phing target `db-fixtures-demo-multidomain`.
+These phing targets are also triggered as the part of others phing targets, see `build.xml` and `build-dev.xml`.
+Demo data are used, for example, during the automatic tests or if you want to install Shopys Framework with some basic data.
 Do not forget to extend the demo data when implementing some new features.
 
 ## How to perform a change of domain URL?
-Akce změny url pozustava ze dvou kroku.
-V prvním kroku upravíte url adresu domény v souboru `app/config/domains.yml` a v druhém kroku nahradíte všechny výskyty staré url adresy v databázi za novou adresu.
-Tento scenář je podrobně popsán v návodu [How to Set Up Domains and Locales (Languages)](./how-to-set-up-domains-and-locales.md#4-change-the-url-address-for-an-existing-domain).
+The change of domain url requires two steps.
+In the first step, you need to modify the domain url in the configuration file `app/config/domains.yml`.
+In the second step, you need to replace all occurrences of the old url address in the database with the new url address.
+This scenario is described in more detail in the tutorial [How to Set Up Domains and Locales (Languages)](./how-to-set-up-domains-and-locales.md#4-change-the-url-address-for-an-existing-domain).
 
 ## How to use migrations and why the developers should use shopsys:migrations:generate instead of the default Doctrine one?
-Migrace (nebo taky databázové migrace) jsou využívany k sjednocení databázového schématu s ORM.
-Na Shopsys Frameworku se pro generování databázových migrací využívá phingový target `db-migrations-generate`.
-Oproti standartnímu generování migrací v Doctrine aplikacích neprobíhá např generování "nevratných" migrací, tj migrace s operacemi typu `DROP` nebo `DELETE`.
-Práce s migracemi je podrobněji popsána v [Database Migrations](./database-migrations.md)
+Migrations (or also sometimes calld as database migrations) are used to unify the database schema with ORM.
+On Shopsys Framework, you can use the phing target `db-migrations-generate` for migrations generation.
+Compared to the standard migrations generation process from Doctrine, this phing target does not generate "irreversible" migrations, such as migrations with the operations `DROP` or `DELETE`.
+Migrations are described more in detail in the docs [Database Migrations](./database-migrations.md)
 
 ## What are the diff versions of coding standards check commands and what are their limits?
-Některé phingové targety pro kontrolu standardu mají kromě základní formy příkazu, která se využívá na kontrolu všech souboru, i formu příkazu se suffixem `-diff`, která se využívá je na kontrolu změněných souboru.
-Např phingový target `standards` spustí kontrolu nad všemi soubory aplikace a phingový target `standards-diff` spustí kontrolu jen nad změněnými soubory aplikace.
+Some of the coding standards check commands are available in two forms.
+The first basic form is used to check all files.
+The second additional form, commands with the suffix `-diff`, is used to check only modified files.
+For example, the phing target `standards` starts checking of all files in the application while the phing target `standards-diff` starts checking only the modified files.
 Modifications are detected via git by comparison against the origin/master version.
 
 ## Is the application https ready or does it need some extra setting?
-Shopys Framework je plně připraven pro HTTPS.
+Shopys Framework is fully prepared for HTTPS.
 
 ## What about translations and language constants export and import?
-Definování uživatelských překladu popisku a hlášek probíha s využitím souboru `messages.cs.po` a `validators.cs.po`, where `cs` represents the version of translations for locale `cs`.
-Tytou soubory jsou vygenerovány pro každý používaný locale a naleznete je ve složce `ShopBundle/Resources/translations/`.
-Práce s jazyky je podrobněji popsána v návodu [How to Set Up Domains and Locales (Languages)](./how-to-set-up-domains-and-locales.md#3-locale-settings).
+To set up the user translations of labels and messages, use the files `messages.cs.po` and `validators.cs.po`, where `cs` represents the version of translations for a locale `cs`.
+These files are generated for each locale you use, and you can find them in a directory `ShopBundle/Resources/translations/`.
+Changes and language settings are described more in detail in the tutorial [How to Set Up Domains and Locales (Languages)](./how-to-set-up-domains-and-locales.md#3-locale-settings).
 
 ## What about deploy and production server setting?
-Pro produkci doporučujeme instalaci pomocí Dockeru.
-Postup instalace Shopsys Frameworku v produkci jako i postup deployování naleznete v návodu [Installation Using Docker on Production Server](../installation/installation-using-docker-on-production-server.md).
+We recommend installation using the Docker for production.
+See how to install Shopsys Framework in production and how to proceed when deploying in the tutorial [Installation Using Docker on Production Server](../installation/installation-using-docker-on-production-server.md).
 
 ## How to set up the administration with a Czech locale?
-Administration is by default in `en` locale.
-If you want to switch it to another locale, override the method `getAdminLocale()` of the class `Shopsys\FrameworkBundle\Model\Localization\Localization`.
-Tento scénář je popsán taky v návodu [How to Set Up Domains and Locales (Languages)](./how-to-set-up-domains-and-locales.md#36-locale-in-administration).
+The administration is by default in `en` locale.
+If you want to switch it to the another locale, override the method `getAdminLocale()` of the class `Shopsys\FrameworkBundle\Model\Localization\Localization`.
+This scenario is described in more detail in the tutorial [How to Set Up Domains and Locales (Languages)](./how-to-set-up-domains-and-locales.md#36-locale-in-administration).
 
 ## What are the differences between "listable", "sellable", "offered" and "visible" products?
-Produkty je možné rozdělit do několika skupin podle toho, jak se s těmito produkty pracuje nebo k čemu jsou používaný.
+Products can be grouped into several groups according to their current status or according to what they are used for.
 
-**Visible** - produkty, které jsou v databázi vedeny jako viditelné.
-Podmínky, které musí produkt splňovat aby byl veden jako viditelný:
-- nesmí být označen jako skrytý
-- v případě, že má produkt nastaven selling start date, tak hodnota tohoto atributu musí být nastavena na datum v minulosti
-- v případě, že má produkt nastaven selling end date, tak hodnota tohoto atributu musí být nastavena na datum v budoucnosti
-- pro daný locale musí mít produkt vyplněn název
-- pro danou doménu musí být produkt zařazen ve viditelném oddělení
-- v případě, že se jedná o variantu, musí mít tato varianta vypočtenou cenu pro danou cenovou skupinu
-- v případě, že se jedná o variantu, nesmí být skryta její hlavní varianta
-- v případě, že se jedná o hlavní variantu, musí být viditelná alespoň jedná její varianta.
+**Visible** - products that appear in the database as visible. 
+The conditions which the product must satisfy to appear as visible:
+- the product must not be set as hidden
+- if the attribute "selling start date" is filled in, the value of this attribute must be set to the date in the past
+- if the attribute "selling end date" is filled in, the value of this attribute must be set to the date in the future
+- the product must have a name for the specific locale
+- if the product is a variant, there must exist calculated price for this variant for the specific pricing group
+- if the product is a variant, her main variant must not be set as hidden
+- if the product is the main variant, at least one of her variants must be visible
 
-**Offered** - produkty, které splňují podmínky pro **visible** a současně jsou v databázi vedeny s příznakem `calculatedSellingDenied` = `FALSE`.
-Příznak `calculatedSellingDenied` určuje, zdali není náhodou produkt vyprodán nebo v případě varianty, zdali není zakázaný prodej hlavní rodičovské položky, pod kterou táto varianta patří.
+**Offered** - products that satisfied the conditions for **visible** and at the same time they appear in the database with the attribute `calculatedSellingDenied` = `FALSE`.
+The `calculatedSellingDenied` attribute shows whether the product is already sold out or if the product is a variant with the main variant that is not set up with selling denied.
 
-**Listable** - produkty, které splňuji podmínky pro **offered** a současně se nejedná o konkrétní varianty nějaké hlavní varianty.
-Pro zobrazení ve výpisech produktu totiž nezobrazujeme konkrétní varianty položky ale zobrazujeme jen hlavní rodičovskou variantu dané konkrétní varianty.
+**Listable** - products that satisfied the conditions for **offered** and at the same time, these products are not the variants.
+By default, the specific variants are not included in the product lists.
+Only the main variants are included in the product lists.
 
-**Sellable** - produkty, které splňuji podmínky pro **offered** a současně se nejedná o hlavní variantu (muže se tedy jednat o konkrétní variantu, nebo stadartní položku).
-Sellable určuje položku, kterou je možné zakoupit.
-Zakoupit lze jen standartní položky a konkrétní varianty nějaké hlavní rodičovské varianty.
+**Sellable** - products that satisfied the conditions for **offered** and at the same time, these products are not the main variants (in other words, these products are either the specific variants or they are the standard products).
+Sellable products are products that can actually be purchased.
+Only the standard products or the specific variants can actually be purchased.
 
 ## How calculated attributes work?
-Na platformě Shopsys Framework existuje několik atributu, které se nanastavují přímo ale jejich hodnota je výsledkem nějakých automatických přepočtu atributu, např viditelnost oddělení, calculated visibility of product, etc.
-Tato vypočtená hodnota je závislá na dalších parametrech daného objektu, např oddělení, které nemá pro locale konkrétní domény vyplněno název, bude na této doméně nastaveno jako neviditelné.
-Samotné přepočty atributu mužou být inicializovány jako `immediate` nebo `scheduled`:
+Some attributes that are used on the Shopsys Framework are not set directly, but their value stands out as a result of the values of other attributes.
+The values of these special attributes are calculated automatically.
+For example, if a category of products does not have a name for a locale of the specific domain, this category will be automatically set as invisible on this domain.
+The recalculations of these special attributes can be initialized as `immediate` or `scheduled`:
 
-**immediate** - přepočet daného atributu je spuštěný při vyvolání události `kernel.response`.
-See například třídu `Shopsys\FrameworkBundle\Model\Product\Pricing\ProductPriceRecalculator` and method `onKernelResponse`.
+**immediate** - recalculation is initialized when the event `kernel.response` is caught.
+See a class `Shopsys\FrameworkBundle\Model\Product\Pricing\ProductPriceRecalculator` and a method `onKernelResponse`.
 
-**scheduled** - přepočet atributu je spuštěn později.
-Produkt nebo oddělení je jen označen k pozdejšímu přepočtu a samotný přepočet proběhne později - po spuštění přislušného cron modulu, see `Shopsys\FrameworkBundle\Command\RecalculationsCommand`.
+**scheduled** - recalculation is initialized later.
+A product or a category of products can be marked for scheduled recalculation, the recalculation itself is initialized with a cron module, see a class `Shopsys\FrameworkBundle\Command\RecalculationsCommand`.
 
-Např v metodě `edit` v `Shopsys\FrameworkBundle\Model\Product\ProductFacade` se volá metoda `scheduleProductForImmediateRecalculation` třídy `Shopsys\FrameworkBundle\Model\Product\Availability\ProductAvailabilityRecalculationScheduler`.
-Toto volání zabezpečí, že při volání metody `edit` je produkt označen k `immediate` přepočtu dostupnosti.
-Tento přepočet je následně spuštěn po dokončení requestu a odchycení metody `onKernelResponse`.
-Neplatí tedy fakt, že po provedení metody `edit` má již produkt dostupnost dopočtenou.
+For example, a method `edit` of a class `Shopsys\FrameworkBundle\Model\Product\ProductFacade` calls a method `scheduleProductForImmediateRecalculation` of a class `Shopsys\FrameworkBundle\Model\Product\Availability\ProductAvailabilityRecalculationScheduler`.
+Through this request, the product is marked for `immediate` recalculation of availability.
+The recalculation itself is initialized when the event `kernel.response` is caught by a method `onKernelResponse`.
+It can be seen from this description that the product does not have recalculated availability immediately after the method `edit` is completed.
 This approach with `kernel.response` event is a legacy feature and it will be removed in the future, see [Recalculating products availability and prices immediately instead of on finish request](https://github.com/shopsys/shopsys/issues/202).
 
 ## How do I change the environment?
-The environment se řídí existenci souboru `PRODUCTION`, `DEVELOPMENT`, `TEST` v rootu vašeho projektu.
-Tento soubor je vytvořen automaticky při spuštění příkazu `composer install`.
-V případě příkazu `composer install` dojde k vytvoření souboru `DEVELOPMENT`.
-V případě příkazu `composer install --no-dev` dojde k vytvoření souboru `PRODUCTION`.
-Manuální změnu environmentu je možné provést pomocí příkazu `php bin/console shopsys:environment:change`.
+The environment is determined by the existence of the files `PRODUCTION`, `DEVELOPMENT`, `TEST` in the root of your project.
+This file is created automatically during the run of a command `composer install`.
+If the command `composer install` is executed, the file `DEVELOPMENT` is created.
+If the command `composer install --no-dev` is executed, the file `PRODUCTION` is created.
+You can change the environment manually by using the command `php bin/console shopsys:environment:change`.
 
 ## Is a cron configuration also part of the Shopsys Framework?
 Yes, there is some prepared configuration for Shopsys Framework cron commands in a file `shopsys/packages/framework/src/Resources/config/services/cron.yml`.
