@@ -5,31 +5,31 @@ snc_redis:
             alias: 'bestselling_products'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'bestselling_products_'
+                prefix: 'cache:bestselling_products:'
         framework_cache:
             type: 'phpredis'
             alias: 'framework_cache'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'framework_cache_'
+                prefix: 'cache:framework:cache:'
         doctrine_metadata:
             type: 'phpredis'
             alias: 'doctrine_metadata'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'doctrine_metadata_'
+                prefix: 'cache:doctrine:metadata:'
         doctrine_query:
             type: 'phpredis'
             alias: 'doctrine_query'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'doctrine_query_'
+                prefix: 'cache:doctrine:query:'
         doctrine_annotations:
             type: 'phpredis'
             alias: 'doctrine_annotations'
             dsn: 'redis://%redis_host%'
             options:
-                prefix: 'doctrine_annotations_'
+                prefix: 'cache:doctrine:annotations:'
         session:
             type: 'phpredis'
             alias: 'session'
@@ -44,4 +44,4 @@ snc_redis:
             entity_manager: default
     session:
         client: 'session'
-        prefix: 'session_'
+        prefix: 'session:'
