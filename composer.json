@@ -64,7 +64,7 @@
     "ext-simplexml": "*",
     "ext-tokenizer": "*",
     "ext-xml": "*",
-    "arvenil/ninja-mutex": "^0.4.1",
+    "arvenil/ninja-mutex": "^0.6.0",
     "barryvdh/elfinder-flysystem-driver": "^0.2",
     "bmatzner/jquery-bundle": "^2.2.2",
     "bmatzner/jquery-ui-bundle": "^1.10.3",
