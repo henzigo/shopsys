@@ -78,6 +78,11 @@ services:
             - chadburn.job-exec.${BRANCH_NAME_ESCAPED}-cron-packetery.no-overlap=true
             - chadburn.job-exec.${BRANCH_NAME_ESCAPED}-cron-packetery.user=www-data
             - chadburn.job-exec.${BRANCH_NAME_ESCAPED}-cron-packetery.tty=true
+            - chadburn.job-exec.${BRANCH_NAME_ESCAPED}-cron-watchdog.schedule=@every 10m
+            - chadburn.job-exec.${BRANCH_NAME_ESCAPED}-cron-watchdog.command=php phing cron-watchdog
+            - chadburn.job-exec.${BRANCH_NAME_ESCAPED}-cron-watchdog.no-overlap=true
+            - chadburn.job-exec.${BRANCH_NAME_ESCAPED}-cron-watchdog.user=www-data
+            - chadburn.job-exec.${BRANCH_NAME_ESCAPED}-cron-watchdog.tty=true
 
     php-consumer:
         restart: always
