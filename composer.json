@@ -129,7 +129,7 @@
         "league/flysystem-google-cloud-storage": "^3.0",
         "league/iso3166": "^4.2.1",
         "litipk/php-bignumbers": "^0.8.6",
-        "nette/utils": "^3.0",
+        "nette/utils": "^4.0",
         "nikic/php-parser": "^5.1",
         "overblog/dataloader-bundle": "^0.6.0",
         "overblog/graphiql-bundle": "^0.3",
