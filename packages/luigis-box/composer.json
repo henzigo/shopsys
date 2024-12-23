@@ -31,7 +31,7 @@
         "shopsys/brand-feed-luigis-box": "16.0.x-dev",
         "shopsys/category-feed-luigis-box": "16.0.x-dev",
         "shopsys/product-feed-luigis-box": "16.0.x-dev",
-        "overblog/dataloader-bundle": "^0.6.0",
+        "overblog/dataloader-bundle": "^1.1",
         "symfony/config": "^6.4",
         "symfony/dependency-injection": "^6.4",
         "symfony/http-foundation": "^6.4",
