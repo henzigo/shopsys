@@ -181,7 +181,7 @@
         "symfony/twig-bundle": "^6.4",
         "symfony/validator": "^6.4",
         "symfony/web-link": "^6.4",
-        "symfony/web-profiler-bundle": "^6.4",
+        "symfony/web-profiler-bundle": "^7.2",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/workflow": "^6.4",
         "tracy/tracy": "^2.4.13",
