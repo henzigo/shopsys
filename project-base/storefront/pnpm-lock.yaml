@@ -235,8 +235,8 @@ importers:
         specifier: ~3.0.0
         version: 3.0.0(@typescript-eslint/eslint-plugin@6.20.0(@typescript-eslint/parser@6.20.0(eslint@8.56.0)(typescript@5.3.3))(eslint@8.56.0)(typescript@5.3.3))(eslint@8.56.0)
       graphql-markdown:
-        specifier: ~7.0.1
-        version: 7.0.1(graphql@16.8.2)
+        specifier: ~7.3.0
+        version: 7.3.0(graphql@16.8.2)
       i18next-parser:
         specifier: ~9.0.2
         version: 9.0.2
@@ -3154,8 +3154,8 @@ packages:
       cosmiconfig-toml-loader:
         optional: true
 
-  graphql-markdown@7.0.1:
-    resolution: {integrity: sha512-+BxY0sxqWSzfvzYnaqZsHA1tuVBq4Qge3kFeo2m7MbUuXt1qv6NoyCeriS3281tzv+HhAoXaIzRg8wWfRg033A==}
+  graphql-markdown@7.3.0:
+    resolution: {integrity: sha512-xTgP+W156DD3k55KpwvNUtV7RTJmGKQhvCzseUXSnJf7KrZozhyyxhq4bv1IiOJgGeRjt5zwHBbEcAEEWCacrg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     peerDependencies:
@@ -9104,7 +9104,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  graphql-markdown@7.0.1(graphql@16.8.2):
+  graphql-markdown@7.3.0(graphql@16.8.2):
     dependencies:
       deep-diff: 1.0.2
       graphql: 16.8.2
