@@ -5,15 +5,6 @@
 
 version: 2
 updates:
-    -   package-ecosystem: "npm" # See documentation for possible values
-        directory: "/project-base/storefront" # Location of package manifests
-        schedule:
-            interval: "weekly"
-        ignore:
-            -   dependency-name: "*"
-                update-types: [ "version-update:semver-major" ]
-        pull-request-branch-name:
-            separator: "-"
     -   package-ecosystem: "composer"
         directory: "/"
         schedule:
