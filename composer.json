@@ -164,7 +164,7 @@
         "symfony/event-dispatcher": "^6.4",
         "symfony/flex": "^1.17",
         "symfony/form": "^6.4",
-        "symfony/html-sanitizer": "^6.1.0",
+        "symfony/html-sanitizer": "^7.2.0",
         "symfony/http-client": "^6.4",
         "symfony/mailer": "^6.4",
         "symfony/messenger": "^6.4",
